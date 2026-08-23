@@ -8,8 +8,9 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Noto+Sans+Thai:wght@100..900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,80₀;1,9₀&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header class="site-header">
@@ -17,47 +18,24 @@
         <nav>
             <ul>
                 <li><a class="active" href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About Us</a></li>
             </ul>
         </nav>
-        <a class="book-link" href="contact.html">จองสนาม <span aria-hidden="true">↗</span></a>
     </header>
     <main>
-        <section class="hero" aria-label="PitchHub facilities">
-            <div class="hero-track">
-                <article class="hero-panel panel-one">
-                    <div class="panel-content">
-                        <p class="eyebrow">01 / PITCHHUB BANGKOK</p>
-                        <h1>สนามหญ้าเทียม<br><em>ย่านใจกลางเมือง</em></h1>
-                        <p class="description">สนามฟุตบอลในร่มคุณภาพสูง พื้นที่กว้าง บรรยากาศดี พร้อมให้คุณและทีมได้เล่นเต็มที่ทุกวัน</p>
-                        <a class="cta" href="contact.html">ดูรายละเอียดสนาม <span aria-hidden="true">→</span></a>
-                    </div>
-                    <span class="location">พระรามศูนย์ · กรุงเทพฯ</span>
-                </article>
-                <article class="hero-panel panel-two">
-                    <div class="panel-content">
-                        <p class="eyebrow">02 / PLAY YOUR WAY</p>
-                        <h2>เกมของคุณ<br><em>เริ่มที่นี่</em></h2>
-                        <p class="description">จองง่าย เดินทางสะดวก พื้นสนามพร้อมสำหรับทุกแมตช์ ตั้งแต่เกมกระชับมิตรจนถึงทัวร์นาเมนต์</p>
-                    </div>
-                </article>
-                <article class="hero-panel panel-three">
-                    <div class="panel-content">
-                        <p class="eyebrow">03 / MORE THAN A PITCH</p>
-                        <h2>พื้นที่ของ<br><em>คนรักฟุตบอล</em></h2>
-                        <p class="description">ใช้เวลาหลังเกมไปกับสิ่งอำนวยความสะดวกที่เราเตรียมไว้ให้ครบ</p>
-                    </div>
-                </article>
-            </div>
-            <button class="slider-arrow slider-arrow--prev" type="button" aria-label="ดูภาพก่อนหน้า">
-                <span aria-hidden="true"></span>
-            </button>
-            <button class="slider-arrow slider-arrow--next" type="button" aria-label="ดูภาพถัดไป">
-                <span aria-hidden="true"></span>
-            </button>
-            <div class="scroll-hint"><span>เลื่อนเพื่อสำรวจ</span><span class="line"></span><span>→</span></div>
-        </section>
+        <div class="content-text">
+            <h1>สนามหญ้าเทียมใจกลางเมือง</h1>
+            <p>สนามฟุตบอลในร่มหญ้าเทียมคุณภาพสูงในราคาเข้าถึงได้ พร้อมสิ่งอำนวยความสะดวกมากมาย<br>จัดแข่งขันทัวร์นาเมนต์ จัดงานอีเว้นท์ในร่ม หาเพื่อนเตะฟุตบอล ที่นี่จะกลายเป็นชุมชนคนรักกีฬา!</p>
+        </div>
+
+        <div class="content-btn">
+            <a href="booking.html" class="book-link">จองเลย<span>↗</span></a>
+            <a href="https://www.facebook.com" class="facebook-link" target="_blank"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+            <a href="https://www.instagram.com" class="instagram-link" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        </div>
+
     </main>
     <script src="mainmenu-scroll.js"></script>
 </body>
