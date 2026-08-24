@@ -7,6 +7,38 @@
     margin: 0;
 }
 
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-old(root) {
+    animation: page-out 280ms ease both;
+}
+
+::view-transition-new(root) {
+    animation: page-in 360ms ease both;
+}
+
+::view-transition-old(site-header),
+::view-transition-new(site-header) {
+    animation-duration: 240ms;
+    animation-timing-function: ease;
+}
+
+@keyframes page-out {
+    to {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes page-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+}
+
 :root {
     --text-color: #fff;
     --secondary-color: #fff;
@@ -22,7 +54,7 @@ html, body {
 body {
     background: var(--secondary-color);
     color: var(--text-color);
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 main {
@@ -31,8 +63,8 @@ main {
         url("https://images.unsplash.com/photo-1630420598913-44208d36f9af?q=80&w=1625&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
     background-size: cover;
     background-position: center;
-    height: 109vh;
-    
+    min-height: 100svh;
+    padding: clamp(12rem, 38vh, 24rem) 5vw 4rem;
 }
 
 .site-header {
@@ -44,13 +76,20 @@ main {
     position: fixed;
     width: 100%;
     z-index: 5;
+    view-transition-name: site-header;
+}
+.site-header::before {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent);
+    content: "";
+    inset: 0;
+    position: absolute;
+    z-index: -1;
 }
 
 .brand {
     color: var(--text-color);
     font-size: 3rem;
     font-weight: 800;
-    letter-spacing: -0.06em;
     text-decoration: none;
 }
 
@@ -71,29 +110,24 @@ nav a, .book-link {
     color: var(--text-color);
     font-size: 1.5rem;
     text-decoration: none;
-    transition: color 0.2s ease;
-    transition: letter-spacing 0.2s ease-in-out;
+    transition: all 0.2s ease;
 }
 
 nav a:hover, nav a.active, .book-link {
     color: var(--main-color);
-    letter-spacing: 0.2em;
     transition: all 0.2s ease;
 }
 
 /*content text*/
 .content-text {
-    width: 1200px;
+    width: min(1200px, 100%);
     height: auto;
     margin: auto;
     color: var(--text-color);
-    position: relative;
-    top: 40vh;
-    right: 25vh;
 }
 
 .content-text h1 {
-    font-size: 4rem;
+    font-size: clamp(2rem, 4vw, 4rem);
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 20px;
@@ -103,16 +137,15 @@ nav a:hover, nav a.active, .book-link {
     padding-left: 3px;
     padding-bottom: 25px;
     line-height: 30px;  
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
 }
 
 /*content button*/
 .content-btn {
-    width: 1200px;
-    margin: 40vh auto 0;
-    position: relative;
-    right: 25vh;
+    width: min(1200px, 100%);
+    margin: 2rem auto 0;
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
@@ -133,22 +166,25 @@ nav a:hover, nav a.active, .book-link {
 }
 
 .facebook-link {
-    color: #1877F2;
+    color: var(--text-color);
+    background-color: #1877F2;
     font-size: 1.5rem;
     text-decoration: none;
     border: 1px solid #1877F2;
     padding: 10px 25px;
-    transition: color 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .facebook-link:hover {
-    background-color: #1877F2;
-    color: var(--secondary-color);
+    background-color: #173965;
+    border: 1px solid #1877F2;
+    color: var(--text-color);
     transition: all 0.3s ease-in-out;
 }
 
 .instagram-link {
-    color: #fd4c87;
+    color: var(--text-color);
+    background-color: #fd4c87;
     font-size: 1.5rem;
     text-decoration: none;
     border: 1px solid #fd4c87;
@@ -157,7 +193,41 @@ nav a:hover, nav a.active, .book-link {
 }
 
 .instagram-link:hover {
-    background-color: #fd4c87;
+    background-color: #742a43;
     color: var(--secondary-color);
     transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 700px) {
+    .site-header {
+        height: auto;
+        padding: 1.25rem 5vw;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .brand {
+        font-size: 2.25rem;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.5rem 1rem;
+    }
+
+    nav a,
+    .book-link,
+    .facebook-link,
+    .instagram-link {
+        font-size: 1rem;
+    }
+
+    .content-text p {
+        line-height: 1.8;
+    }
+
+    .content-btn {
+        gap: 12px;
+    }
 }
