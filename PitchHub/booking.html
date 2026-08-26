@@ -5,14 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PitchHub</title>
 
-    <link rel="stylesheet" href="booking-page-style.css">
+    <link rel="stylesheet" href="CSS-Booking/booking-page-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Noto+Sans+Thai:wght@100..900&family=Prompt:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
 <body>
     <div id="site-nav"></div>
+
     <div class="main-content">
-        <table class="booking-table">
+        <div class="calendar-picker">
+            <button class="calendar-btn" type="button" aria-controls="calendar-popover" aria-expanded="false">
+                <span class="calendar-label">Calendar</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <input class="calendar-input" id="booking-date" type="date" aria-label="Choose a booking date">
+            <div class="calendar-popover" id="calendar-popover" hidden>
+                <div class="calendar-header">
+                    <button class="calendar-nav" id="previous-month" type="button" aria-label="Previous month">
+                        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <div class="calendar-month-picker">
+                        <button class="calendar-month" id="calendar-month" type="button" aria-controls="calendar-year-picker" aria-expanded="false"></button>
+                        <div class="calendar-year-picker" id="calendar-year-picker" aria-label="Choose a year" hidden></div>
+                    </div>
+                    <button class="calendar-nav" id="next-month" type="button" aria-label="Next month">
+                        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="calendar-weekdays" aria-hidden="true">
+                    <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                </div>
+                <div class="calendar-days" id="calendar-days"></div>
+            </div>
+        </div>
+        <table class="booking-table" id="booking-table">
             <thead>
                 <tr class="head-row">
                     <th class="head-row">Time</th>
@@ -296,6 +322,7 @@
         </table>
     </div>
     <script src="pages-handler.js"></script>
-    <script src="booking-system.js"></script>
+    <script src="JS-Booking-system/calendar-handler.js"></script>
+    <script src="JS-Booking-system/select-table.js"></script>
 </body>
 </html>
