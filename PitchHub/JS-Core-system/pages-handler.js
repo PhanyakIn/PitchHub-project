@@ -7,8 +7,7 @@ document.querySelector('#site-nav').innerHTML = `
 			<ul>
 				<li><a href="index.html">Home</a></li>
 				<li><a href="booking.html">Booking</a></li>
-				<li><a href="gallery.html">Gallery</a></li>
-				<li><a href="about.html">About Us</a></li>
+				<li><a href="teams.html">Teams</a></li>
 			</ul>
 		</nav>
 	</header>

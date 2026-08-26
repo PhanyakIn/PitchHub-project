@@ -3,30 +3,28 @@
 }
 
 ::view-transition-old(root) {
-    animation: page-out 280ms ease both;
+    animation: none;
+    z-index: 1;
 }
 
 ::view-transition-new(root) {
-    animation: page-in 360ms ease both;
-}
-
-::view-transition-old(site-header),
-::view-transition-new(site-header) {
-    animation-duration: 240ms;
-    animation-timing-function: ease;
-}
-
-@keyframes page-out {
-    to {
-        opacity: 0;
-        transform: translateY(-8px);
-    }
+    animation: page-in 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    box-shadow: -18px 0 32px rgba(0, 0, 0, 0.18);
+    z-index: 2;
 }
 
 @keyframes page-in {
     from {
-        opacity: 0;
-        transform: translateY(8px);
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-new(root) {
+        animation-duration: 1ms;
     }
 }
 
@@ -49,8 +47,8 @@ body {
     --text-color: #fff;
     --secondary-color: #fff;
     --main-color: #fca400;
-    --booked: #b13636;
-    --available: #636b5f;
+    --booked: #cb4444;
+    --available: #8eb079; /*636b5f*/
     --dark: #2b2b2b;
     --selecting: #fca400;
 }
@@ -67,7 +65,6 @@ body {
     position: fixed;
     width: 100%;
     z-index: 5;
-    view-transition-name: site-header;
 }
 .site-header::before {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent);
@@ -112,9 +109,12 @@ nav a.active {
 }
 
 .main-content {
+    align-items: stretch;
     display: flex;
-    flex-direction: column;
+    gap: 0;
     justify-content: center;
+    margin: 0 auto;
+    max-width: 1440px;
     padding-top: 150px;
 }
 
@@ -124,7 +124,7 @@ nav a.active {
     color: var(--dark);
     border: 0.5px solid #000;
     background-color: var(--available);
-    width: min(800px, 100%);
+    width: 100%;
     table-layout: fixed;
     border-spacing: 0;
     text-align: center;
@@ -158,6 +158,7 @@ nav a.active {
 .status-pitch {
     height: 35px;
     transition: all 0.5s;
+    
 }
 .status-pitch.selecting {
     background-color: var(--selecting);
@@ -175,11 +176,22 @@ nav a.active {
     width: 21%;
 }
 
+
+/*Main table*/
+.main-table {
+    display: flex;
+    flex-direction: column;
+    flex: 2 1 550px;
+    margin: 0;
+    min-width: 0;
+}
+
+
 /*Calendar*/
 .calendar-btn {
     align-items: center;
     display: flex;
-    width: min(800px, 100%);
+    width: 100%;
     background-color: var(--selecting);
     border: 1px solid #000;
     color: var(--dark);
@@ -192,13 +204,12 @@ nav a.active {
 }
 
 .calendar-btn:hover {
-    background-color: #ffc14e;
+    background-color: #b78b43;
 }
 
 .calendar-picker {
     position: relative;
-    width: min(800px, 100%);
-    margin-top: 50px;
+    width: 100%;
 }
 
 .calendar-input {
@@ -226,7 +237,7 @@ nav a.active {
     transform: translateY(-1rem);
     transition: opacity 220ms ease, transform 220ms ease;
     width: 100%;
-    z-index: 10;
+    z-index: 4;
 }
 
 .calendar-popover.is-open {
@@ -263,7 +274,6 @@ nav a.active {
     border: 1.5px solid var(--main-color);
     border-radius: 15px;
     padding: 5px 20px 5px 20px;
-
 }
 
 .calendar-month:hover {
@@ -315,10 +325,13 @@ nav a.active {
     color: var(--dark);
     cursor: pointer;
     display: flex;
-    font-size: 1rem;
-    height: 2rem;
+    font-size: 1.25rem;
+    height: 3rem;
     justify-content: center;
-    width: 2rem;
+    width: 3rem;
+    transition: .2s;
+    border-radius: 50%;
+    border: 2px solid var(--main-color);
 }
 
 .calendar-nav:hover {
@@ -333,7 +346,7 @@ nav a.active {
 }
 
 .calendar-weekdays {
-    color: var(--available);
+    color: var(--dark);
     font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -361,6 +374,104 @@ nav a.active {
     background-color: var(--selecting);
     border-color: var(--dark);
     font-weight: 600;
+}
+
+
+/*Info content*/
+.info-content {
+    display: flex;
+    flex: 1 1 420px;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 0;
+    margin: 0;
+    border: 1px solid black;
+    border-left: 0;
+    padding: 1rem;
+    background-color: var(--dark);
+}
+
+.info-content > * {
+    min-width: 0;
+    width: 100%;
+}
+
+.color-info-table {
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    margin-top: 40px;
+}
+.color-isavailable {
+    flex: 1;
+    padding: 10px;
+    background-color: var(--available);
+    border: 1px solid black;
+}
+.color-isbooked {
+    flex: 1;
+    padding: 10px;
+    background-color: var(--booked);
+    border: 1px solid black;
+}
+
+.price-table {
+    background-color: var(--secondary-color);
+    border-collapse: collapse;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.price-head-row {
+    color: var(--text-color);
+    border: 1px solid black;
+    background-color: var(--dark);
+}
+.price-data-row {
+    border: 1px solid black;
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+}
+.contact-tel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: var(--main-color);
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid black;
+}
+.contact-tel h3 {
+    padding: 5px;
+    margin: 0;
+}
+
+
+@media (max-width: 1000px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .main-table,
+    .info-content {
+        flex-basis: auto;
+        width: 100%;
+    }
+
+    .info-content {
+        margin-top: 0;
+    }
 }
 
 @media (max-width: 600px) {

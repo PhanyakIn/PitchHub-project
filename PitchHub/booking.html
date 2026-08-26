@@ -14,314 +14,363 @@
     <div id="site-nav"></div>
 
     <div class="main-content">
-        <div class="calendar-picker">
-            <button class="calendar-btn" type="button" aria-controls="calendar-popover" aria-expanded="false">
-                <span class="calendar-label">Calendar</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
-            </button>
-            <input class="calendar-input" id="booking-date" type="date" aria-label="Choose a booking date">
-            <div class="calendar-popover" id="calendar-popover" hidden>
-                <div class="calendar-header">
-                    <button class="calendar-nav" id="previous-month" type="button" aria-label="Previous month">
-                        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-                    </button>
-                    <div class="calendar-month-picker">
-                        <button class="calendar-month" id="calendar-month" type="button" aria-controls="calendar-year-picker" aria-expanded="false"></button>
-                        <div class="calendar-year-picker" id="calendar-year-picker" aria-label="Choose a year" hidden></div>
+        <div class="main-table">
+            <div class="calendar-picker">
+                <button class="calendar-btn" type="button" aria-controls="calendar-popover" aria-expanded="false">
+                    <span class="calendar-label">00/00/0000</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </button>
+                <input class="calendar-input" id="booking-date" type="date" aria-label="Choose a booking date">
+                <div class="calendar-popover" id="calendar-popover" hidden>
+                    <div class="calendar-header">
+                        <button class="calendar-nav" id="previous-month" type="button" aria-label="Previous month">
+                            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <div class="calendar-month-picker">
+                            <button class="calendar-month" id="calendar-month" type="button" aria-controls="calendar-year-picker" aria-expanded="false"></button>
+                            <div class="calendar-year-picker" id="calendar-year-picker" aria-label="Choose a year" hidden></div>
+                        </div>
+                        <button class="calendar-nav" id="next-month" type="button" aria-label="Next month">
+                            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                        </button>
                     </div>
-                    <button class="calendar-nav" id="next-month" type="button" aria-label="Next month">
-                        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-                    </button>
+                    <div class="calendar-weekdays" aria-hidden="true">
+                        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                    </div>
+                    <div class="calendar-days" id="calendar-days"></div>
                 </div>
-                <div class="calendar-weekdays" aria-hidden="true">
-                    <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
-                </div>
-                <div class="calendar-days" id="calendar-days"></div>
+            </div>
+            <table class="booking-table" id="booking-table">
+                <thead>
+                    <tr class="head-row">
+                        <th class="head-row">Time</th>
+                        <th class="row-pitch">Pitch 1</th>
+                        <th class="row-pitch">Pitch 2</th>
+                        <th class="row-pitch">Pitch 3</th>
+                        <th class="row-pitch">Pitch 4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="data-row">
+                        <th rowspan="2" class="row-time" id="c7">7:00</th>
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+                    <tr class="data-row" id="c730">
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+
+
+                    <tr class="data-row">
+                        <th rowspan="2" class="row-time" id="c8">8:00</th>
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+                    <tr class="data-row" id="c830">
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+
+                    
+                    <tr class="data-row">
+                        <th rowspan="2" class="row-time" id="c9">9:00</th>
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+                    <tr class="data-row" id="c930">
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+
+
+                    <tr class="data-row">
+                        <th rowspan="2" class="row-time" id="c10">10:00</th>
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+                    <tr class="data-row" id="c1030">
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+
+
+                    <tr class="data-row">
+                        <th rowspan="2" class="row-time" id="c11">11:00</th>
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+                    <tr class="data-row" id="c1130">
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+
+
+                    <tr class="data-row">
+                        <th rowspan="2" class="row-time" id="c12">12:00</th>
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+                    <tr class="data-row" id="c1230">
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+
+
+                    <tr class="data-row">
+                        <th rowspan="2" class="row-time" id="c13">13:00</th>
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+                    <tr class="data-row" id="c1330">
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+
+
+                    <tr class="data-row">
+                        <th rowspan="2" class="row-time" id="c14">14:00</th>
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+                    <tr class="data-row" id="c1430">
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+
+
+                    <tr class="data-row">
+                        <th rowspan="2" class="row-time" id="c15">15:00</th>
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+                    <tr class="data-row" id="c1530">
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+
+
+                    <tr class="data-row">
+                        <th rowspan="2" class="row-time" id="c16">16:00</th>
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+                    <tr class="data-row" id="c1630">
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+
+
+                    <tr class="data-row">
+                        <th rowspan="2" class="row-time" id="c17">17:00</th>
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+                    <tr class="data-row" id="c1730">
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+
+
+                    <tr class="data-row">
+                        <th rowspan="2" class="row-time" id="c18">18:00</th>
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+                    <tr class="data-row" id="c1830">
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+
+
+                    <tr class="data-row">
+                        <th rowspan="2" class="row-time" id="c19">19:00</th>
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+                    <tr class="data-row" id="c1930">
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+
+
+                    <tr class="data-row">
+                        <th rowspan="2" class="row-time" id="c20">20:00</th>
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+                    <tr class="data-row" id="c2030">
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+
+
+                    <tr class="data-row">
+                        <th rowspan="2" class="row-time" id="c21">21:00</th>
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+                    <tr class="data-row" id="c2130">
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+
+
+                    <tr class="data-row">
+                        <th rowspan="2" class="row-time" id="c22">22:00</th>
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+                    <tr class="data-row" id="c2230">
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+
+
+                    <tr class="data-row">
+                        <th rowspan="2" class="row-time" id="c23">23:00</th>
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+                    <tr class="data-row" id="c2330">
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+
+
+                    <tr class="data-row">
+                        <th rowspan="2" class="row-time" id="c24">00:00</th>
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+                    <tr class="data-row" id="c2430">
+                        <td class="status-pitch" id="p1"></td>
+                        <td class="status-pitch" id="p2"></td>
+                        <td class="status-pitch" id="p3"></td>
+                        <td class="status-pitch" id="p4"></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-content">
+            <div class="color-info-table">
+                <div class="color-isavailable">จองได้</div>
+                <div class="color-isbooked">จองแล้ว</div>
+            </div>
+            <div class="price-info">
+                <table class="price-table">
+                    <tr class="price-head-row">
+                        <td class="price-data-row">วัน</td>
+                        <td class="price-data-row">เวลา</td>
+                        <td class="price-data-row">ราคา/ชั่วโมง</td>
+                    </tr>
+
+                    <tr class="price-data-row">
+                        <td rowspan="3" class="price-data-row">จันทร์-ศุกร์</td>
+                        <td class="price-data-row">09:00 - 18:00</td>
+                        <td class="price-data-row">1,300 บาท</td>
+                    </tr>
+                    <tr class="price-data-row">
+                        <td class="price-data-row">18:00 - 22:00</td>
+                        <td class="price-data-row">2,000 บาท</td>
+                    </tr>
+                    <tr class="price-data-row">
+                        <td class="price-data-row">22:00 - 00:00</td>
+                        <td class="price-data-row">1,700 บาท</td>
+                    </tr>
+
+                    <tr class="price-data-row">
+                        <td rowspan="2" class="price-data-row">เสาร์-อาทิตย์ และวันหยุดนักขัตฤกษ์</td>
+                        <td class="price-data-row">09:00 - 18:00</td>
+                        <td class="price-data-row">1,500 บาท</td>
+                    </tr>
+                    <tr class="price-data-row">
+                        <td class="price-data-row">18:00 - 00:00</td>
+                        <td class="price-data-row">1,700 บาท</td>
+                    </tr>
+
+                </table>
+            </div>
+
+            <div class="contact-content">
+                <h3>ติดต่อสอบถามอัตราค่าบริการ จัดแข่งขันทัวร์นาเมนต์ <br>จัดงานอีเวนท์หรือกิจกรรมต่างๆ กรุณาติดต่อ</h3>
+                <div class="contact-tel"><i class="fa-solid fa-phone"></i><h3>09-XXXX-XXXX (Alice)</h3></div>
+                <div class="contact-tel"><i class="fa-solid fa-phone"></i><h3>08-XXXX-XXXX (Bob)</h3></div>
             </div>
         </div>
-        <table class="booking-table" id="booking-table">
-            <thead>
-                <tr class="head-row">
-                    <th class="head-row">Time</th>
-                    <th class="row-pitch">Pitch 1</th>
-                    <th class="row-pitch">Pitch 2</th>
-                    <th class="row-pitch">Pitch 3</th>
-                    <th class="row-pitch">Pitch 4</th>
-                </tr>
-            </thead>
-            <tbody>
-                 <tr class="data-row">
-                    <th rowspan="2" class="row-time" id="c7">7:00</th>
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-                <tr class="data-row" id="c730">
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-
-
-                <tr class="data-row">
-                    <th rowspan="2" class="row-time" id="c8">8:00</th>
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-                <tr class="data-row" id="c830">
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-
-                
-                <tr class="data-row">
-                    <th rowspan="2" class="row-time" id="c9">9:00</th>
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-                <tr class="data-row" id="c930">
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-
-
-                <tr class="data-row">
-                    <th rowspan="2" class="row-time" id="c10">10:00</th>
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-                <tr class="data-row" id="c1030">
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-
-
-                <tr class="data-row">
-                    <th rowspan="2" class="row-time" id="c11">11:00</th>
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-                <tr class="data-row" id="c1130">
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-
-
-                <tr class="data-row">
-                    <th rowspan="2" class="row-time" id="c12">12:00</th>
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-                <tr class="data-row" id="c1230">
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-
-
-                <tr class="data-row">
-                    <th rowspan="2" class="row-time" id="c13">13:00</th>
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-                <tr class="data-row" id="c1330">
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-
-
-                <tr class="data-row">
-                    <th rowspan="2" class="row-time" id="c14">14:00</th>
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-                <tr class="data-row" id="c1430">
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-
-
-                <tr class="data-row">
-                    <th rowspan="2" class="row-time" id="c15">15:00</th>
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-                <tr class="data-row" id="c1530">
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-
-
-                <tr class="data-row">
-                    <th rowspan="2" class="row-time" id="c16">16:00</th>
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-                <tr class="data-row" id="c1630">
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-
-
-                <tr class="data-row">
-                    <th rowspan="2" class="row-time" id="c17">17:00</th>
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-                <tr class="data-row" id="c1730">
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-
-
-                <tr class="data-row">
-                    <th rowspan="2" class="row-time" id="c18">18:00</th>
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-                <tr class="data-row" id="c1830">
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-
-
-                <tr class="data-row">
-                    <th rowspan="2" class="row-time" id="c19">19:00</th>
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-                <tr class="data-row" id="c1930">
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-
-
-                <tr class="data-row">
-                    <th rowspan="2" class="row-time" id="c20">20:00</th>
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-                <tr class="data-row" id="c2030">
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-
-
-                <tr class="data-row">
-                    <th rowspan="2" class="row-time" id="c21">21:00</th>
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-                <tr class="data-row" id="c2130">
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-
-
-                <tr class="data-row">
-                    <th rowspan="2" class="row-time" id="c22">22:00</th>
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-                <tr class="data-row" id="c2230">
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-
-
-                <tr class="data-row">
-                    <th rowspan="2" class="row-time" id="c23">23:00</th>
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-                <tr class="data-row" id="c2330">
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-
-
-                <tr class="data-row">
-                    <th rowspan="2" class="row-time" id="c24">00:00</th>
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-                <tr class="data-row" id="c2430">
-                    <td class="status-pitch" id="p1"></td>
-                    <td class="status-pitch" id="p2"></td>
-                    <td class="status-pitch" id="p3"></td>
-                    <td class="status-pitch" id="p4"></td>
-                </tr>
-
-            </tbody>
-        </table>
     </div>
-    <script src="pages-handler.js"></script>
+    <script src="JS-Core-system/pages-handler.js"></script>
     <script src="JS-Booking-system/calendar-handler.js"></script>
     <script src="JS-Booking-system/select-table.js"></script>
 </body>
