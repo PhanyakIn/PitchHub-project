@@ -58,6 +58,7 @@ const selectDate = (date) => {
 	});
 	closeCalendar();
 	selectedDate = date;
+	window.dispatchEvent(new CustomEvent('pitchhub:date-selected'));
 };
 
 const openCalendar = () => {

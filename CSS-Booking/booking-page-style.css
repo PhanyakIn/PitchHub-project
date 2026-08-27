@@ -113,6 +113,10 @@ nav a.active {
     color: var(--main-color);
 }
 
+.desktop-nav .fa-circle-user {
+    font-size: 2rem;
+}
+
 .main-content {
     align-items: stretch;
     display: flex;
@@ -174,6 +178,39 @@ nav a.active {
 }
 .status-pitch.selecting:hover {
     background-color: var(--selecting);
+}
+
+.status-pitch.is-booked,
+.status-pitch.is-booked:hover {
+    background-color: var(--booked);
+    cursor: not-allowed;
+}
+
+.booking-status-message {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--dark);
+    margin: 0;
+    padding: 0.65rem 1rem;
+    text-align: center;
+}
+
+.booking-status-message.is-error {
+    color: var(--booked);
+}
+
+.booking-submit {
+    align-self: flex-end;
+    background-color: var(--selecting);
+    border: 1px solid #000;
+    color: var(--dark);
+    cursor: pointer;
+    font-family: "Prompt", sans-serif;
+    font-size: 1.1rem;
+    padding: 0.55rem 1.25rem;
+}
+
+.booking-submit:hover {
+    background-color: #b78b43;
 }
 
 .row-pitch,

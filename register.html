@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สมัครสมาชิก | PitchHub</title>
+    <link rel="stylesheet" href="CSS-Auth/auth-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div id="site-nav"></div>
+    <main class="auth-main">
+        <section class="auth-card" aria-labelledby="register-title">
+            <h1 id="register-title">สมัครสมาชิก</h1>
+            <p>สร้างบัญชีเพื่อเริ่มจองสนาม</p>
+            <p id="auth-message" class="auth-message" hidden role="status"></p>
+            <form class="auth-form" id="auth-form">
+                <div class="form-row">
+                    <label for="first-name">ชื่อ<input id="first-name" name="first_name" type="text" autocomplete="given-name" required></label>
+                    <label for="last-name">นามสกุล<input id="last-name" name="last_name" type="text" autocomplete="family-name" required></label>
+                </div>
+                <label for="email">อีเมล<input id="email" name="email" type="email" autocomplete="email" required></label>
+                <label for="password">รหัสผ่าน<input id="password" name="password" type="password" minlength="6" autocomplete="new-password" required></label>
+                <label for="confirm-password">ยืนยันรหัสผ่าน<input id="confirm-password" name="confirm_password" type="password" minlength="6" autocomplete="new-password" required></label>
+                <button class="auth-submit" type="submit">สมัครสมาชิก</button>
+            </form>
+            <p class="auth-switch">มีบัญชีอยู่แล้ว? <a href="login.html">เข้าสู่ระบบ</a></p>
+        </section>
+    </main>
+    <script src="JS-Core-system/pages-handler.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="JS-Core-system/supabase-config.js"></script>
+    <script src="JS-Core-system/auth-handler.js"></script>
+</body>
+</html>
