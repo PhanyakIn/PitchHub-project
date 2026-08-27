@@ -103,6 +103,11 @@ nav ul {
     padding: 0;
 }
 
+.sidebar,
+.menu-toggle {
+    display: none;
+}
+
 nav a, .book-link {
     color: var(--text-color);
     font-size: 1.5rem;
@@ -198,7 +203,7 @@ nav a:hover, nav a.active, .book-link {
 @media (max-width: 700px) {
     .site-header {
         height: auto;
-        padding: 1.25rem 5vw;
+        padding: 1.25rem clamp(1.25rem, 7vw, 2rem);
         align-items: flex-start;
         gap: 1rem;
     }
@@ -207,17 +212,51 @@ nav a:hover, nav a.active, .book-link {
         font-size: 2.25rem;
     }
 
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        gap: 0.5rem 1rem;
+    nav .desktop-nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        align-items: center;
+        background: transparent;
+        border: 0;
+        color: var(--text-color);
+        cursor: pointer;
+        display: flex;
+        font-size: 1.75rem;
+        justify-content: center;
+        padding: 0.5rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    nav .sidebar {
+        background: rgba(20, 20, 20, 0.97);
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        height: 100vh;
+        justify-content: flex-start;
+        padding: 7rem 2rem 2rem;
+        position: fixed;
+        right: 0;
+        top: 0;
+        transform: translateX(100%);
+        transition: transform 0.25s ease;
+        width: min(18rem, 80vw);
+        z-index: 99;
+    }
+
+    nav .sidebar.is-open {
+        transform: translateX(0);
     }
 
     nav a,
     .book-link,
     .facebook-link,
     .instagram-link {
-        font-size: 1rem;
+        font-size: 1.25rem;
+        text-align: center;
     }
 
     .content-text p {
