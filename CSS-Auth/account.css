@@ -1,0 +1,291 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --account-ink: #2b2b2b;
+    --account-muted: #6f6f6f;
+    --account-accent: #fca400;
+    --main-color: #fca400;
+    --account-surface: #fff;
+    --text-color: #fff;
+    --account-logout: #ff6464;
+}
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58)), url("https://cdn.myanimelist.net/images/about_me/main_visual/4767223-7b8c13ec-29fb-4be2-870f-d5de40b3eba7.jpg?t=1742860960") center / cover fixed;
+    color: var(--account-ink);
+    font-family: "Prompt", sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.site-header {
+    align-items: center;
+    display: flex;
+    height: 150px;
+    justify-content: space-between;
+    padding: 0 5vw;
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+
+.site-header::before {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent);
+    content: "";
+    inset: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.brand {
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.brand span,
+nav a:hover,
+nav a.active {
+    color: var(--account-accent);
+}
+
+nav ul {
+    display: flex;
+    gap: clamp(1rem, 3vw, 3.5rem);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.sidebar,
+.menu-toggle {
+    display: none;
+}
+
+nav a {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 200;
+    text-decoration: none;
+}
+
+.nav-account-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+    font-size: 1.35rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: .2s;
+}
+.nav-account-avatar:hover {
+    background: var(--main-color);
+    color: var(--text-color);
+}
+
+nav a.active .nav-account-avatar {
+    background: var(--account-accent);
+    color: #fff;
+}
+
+.account-main {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 12rem 1rem 4rem;
+}
+
+.account-card {
+    background: var(--account-surface);
+    border-radius: 8px;
+    height: fit-content;
+    max-width: 720px;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    width: 100%;
+}
+
+.account-heading,
+.account-profile,
+.booking-history-item > div {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.account-eyebrow {
+    color: #a66a00;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.account-heading h1 {
+    margin: 0.2rem 0 0;
+}
+
+.logout-btn,
+.cancel-booking-btn {
+    background: transparent;
+    border: 1px solid var(--account-ink);
+    color: var(--account-logout);
+    cursor: pointer;
+    font: inherit;
+    padding: 0.55rem 0.8rem;
+    transition: .2s;
+}
+
+.logout-btn:hover,
+.cancel-booking-btn:hover {
+    background: var(--account-logout);
+    color: var(--account-surface);
+}
+
+.account-profile {
+    border-bottom: 1px solid #ddd;
+    gap: 1rem;
+    justify-content: flex-start;
+    padding: 1.5rem 0;
+}
+
+.profile-icon {
+    color: var(--account-accent);
+    font-size: 3.5rem;
+}
+
+.profile-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: var(--account-accent);
+    color: var(--account-surface);
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.account-profile strong,
+.account-profile span:not(.profile-icon) {
+    display: block;
+}
+
+.account-profile span:not(.profile-icon),
+.account-message,
+.empty-bookings {
+    color: var(--account-muted);
+}
+
+.account-message {
+    min-height: 1.25rem;
+}
+
+.account-message.is-error {
+    color: #a32f2f;
+}
+
+.booking-history h2 {
+    font-size: 1.35rem;
+    margin: 1.5rem 0 0.75rem;
+}
+
+.booking-list {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.booking-history-item {
+    border: 1px solid #ddd;
+    padding: 1rem;
+}
+
+.booking-history-item > div + div {
+    margin-top: 0.4rem;
+}
+
+.booking-history-item span {
+    color: var(--account-muted);
+}
+
+.booking-history-item.is-cancelled {
+    opacity: 0.62;
+}
+
+.booking-cancelled-label {
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 0.6rem;
+}
+
+@media (max-width: 700px) {
+    .site-header {
+        align-items: flex-start;
+        height: auto;
+        padding: 1.25rem clamp(1.25rem, 7vw, 2rem);
+    }
+
+    .brand {
+        font-size: 2.25rem;
+    }
+
+    nav .desktop-nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        align-items: center;
+        background: transparent;
+        border: 0;
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        font-size: 1.75rem;
+        justify-content: center;
+        padding: 0.5rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    nav .sidebar {
+        background: rgba(20, 20, 20, 0.97);
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        height: 100vh;
+        padding: 7rem 2rem 2rem;
+        position: fixed;
+        right: 0;
+        top: 0;
+        transform: translateX(100%);
+        transition: transform 0.25s ease;
+        width: min(18rem, 80vw);
+        z-index: 99;
+    }
+
+    nav .sidebar.is-open {
+        transform: translateX(0);
+    }
+
+    nav a {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+    .account-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

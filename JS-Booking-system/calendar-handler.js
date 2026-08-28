@@ -1,6 +1,7 @@
+(() => {
 const calendarButton = document.querySelector('.calendar-btn');
 const bookingDate = document.querySelector('#booking-date');
-const bookingTable = document.querySelector('#booking-table');
+const calendarBookingTable = document.querySelector('#booking-table');
 const calendarPopover = document.querySelector('#calendar-popover');
 const calendarMonth = document.querySelector('#calendar-month');
 const calendarDays = document.querySelector('#calendar-days');
@@ -52,7 +53,7 @@ const renderYearPicker = () => {
 const selectDate = (date) => {
 	bookingDate.value = formatDate(date);
 	calendarLabel.textContent = formatDisplayDate(date);
-	bookingTable.hidden = false;
+	calendarBookingTable.hidden = false;
 	document.querySelectorAll('.status-pitch.selecting').forEach((pitch) => {
 		pitch.classList.remove('selecting');
 	});
@@ -139,4 +140,5 @@ calendarMonth?.addEventListener('click', () => {
 	calendarYearPicker.hidden = !calendarYearPicker.hidden;
 	calendarMonth.setAttribute('aria-expanded', String(!calendarYearPicker.hidden));
 });
+})();
 

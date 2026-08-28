@@ -10,21 +10,22 @@ document.querySelector('#site-nav').innerHTML = `
 			<ul class="sidebar" id="mobile-sidebar">
 				<li><a href="index.html">Home</a></li>
 				<li><a href="booking.html">Booking</a></li>
-				<li><a href="teams.html">Teams</a></li>
+				<li><a href="match.html">Match</a></li>
 				<li><a href="login.html">Login</a></li>
 			</ul>
 			<ul class="desktop-nav">
 				<li><a href="index.html">Home</a></li>
 				<li><a href="booking.html">Booking</a></li>
-				<li><a href="teams.html">Teams</a></li>
+				<li><a href="match.html">Match</a></li>
 				<li><a href="login.html"><i class="fa-regular fa-circle-user" style="font-size: 2.5rem;"></i></a></li>
 			</ul>
 		</nav>
 	</header>
 `;
 
-const activeLink = document.querySelector(`nav a[href="${currentPage}"]`);
-activeLink?.classList.add('active');
+document.querySelectorAll(`nav a[href="${currentPage}"]`).forEach((link) => {
+	link.classList.add('active');
+});
 
 const menuToggle = document.querySelector('.menu-toggle');
 const sidebar = document.querySelector('.sidebar');

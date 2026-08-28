@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PitchHub</title>
+    <title>Booking | PitchHub</title>
 
     <link rel="stylesheet" href="CSS-Booking/booking-page-style.css">
+    <link rel="stylesheet" href="CSS-Booking/pages-transition.css">
+    <link rel="stylesheet" href="CSS-Booking/payment-page-style.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Noto+Sans+Thai:wght@100..900&family=Prompt:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
@@ -370,11 +373,19 @@
             </div>
         </div>
     </div>
+
+    <div class="confirm-content">
+        <button class="confirm-btn">ยืนยันการจอง!</button>
+    </div>
+
+
     <script src="JS-Core-system/pages-handler.js"></script>
     <script src="JS-Booking-system/calendar-handler.js"></script>
     <script src="JS-Booking-system/select-table.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="JS-Core-system/supabase-config.js"></script>
+    <script src="JS-Core-system/auth-nav-handler.js"></script>
     <script src="JS-Booking-system/supabase-booking.js"></script>
+    <script src="JS-Booking-system/payment-handler.js"></script>
 </body>
 </html>

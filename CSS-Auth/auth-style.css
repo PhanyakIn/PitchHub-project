@@ -7,61 +7,101 @@
     --ink: #2b2b2b;
     --muted: #6f6f6f;
     --surface: #fff;
+
+    --text-color: #fff;
+    --secondary-color: #fff;
+    --main-color: #fca400;
+    --booked: #cb4444;
+    --available: #8eb079;
+    --dark: #2b2b2b;
+    --selecting: #fca400;
 }
 
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("https://images.unsplash.com/photo-1565308674684-1d8c0b4433d2?q=80&w=1600&auto=format&fit=crop") center / cover fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("https://cdn.myanimelist.net/images/about_me/main_visual/4767223-7b8c13ec-29fb-4be2-870f-d5de40b3eba7.jpg?t=1742860960") center / cover fixed;
     color: var(--ink);
     font-family: "Prompt", sans-serif;
     margin: 0;
     min-height: 100vh;
 }
 
+/*nav bar*/
+
 .site-header {
     align-items: center;
     display: flex;
-    height: 110px;
+    height: 150px;
     justify-content: space-between;
     padding: 0 5vw;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+.site-header::before {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent);
+    content: "";
+    inset: 0;
+    position: absolute;
+    z-index: -1;
 }
 
 .brand {
-    color: #fff;
-    font-size: 2.6rem;
+    color: var(--text-color);
+    font-family: "Prompt", sans-serif;
+    font-size: 3rem;
     font-weight: 800;
     text-decoration: none;
 }
 
 .brand span {
-    color: var(--accent);
+    color: var(--main-color);
+    font-weight: 800;
 }
 
 nav ul {
     display: flex;
-    gap: 2rem;
+    gap: clamp(1rem, 3vw, 3.5rem);
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
+.sidebar,
+.menu-toggle {
+    display: none;
+}
+
 nav a {
-    color: #fff;
-    font-size: 1.1rem;
+    color: var(--text-color);
+    font-family: "Prompt", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 200;
     text-decoration: none;
+    transition: all 0.2s ease;
 }
 
 nav a:hover,
 nav a.active {
-    color: var(--accent);
+    color: var(--main-color);
 }
 
 .desktop-nav .fa-circle-user {
     font-size: 2rem;
 }
 
-.sidebar,
-.menu-toggle {
-    display: none;
+.nav-account-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--main-color);
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
 .auth-main {
@@ -77,6 +117,7 @@ nav a.active {
     border-radius: 6px;
     padding: 2rem;
     width: min(100%, 440px);
+    margin-top: 10rem;
 }
 
 .auth-card h1 {
@@ -112,6 +153,10 @@ nav a.active {
     font: inherit;
     padding: 0.7rem 0.75rem;
     width: 100%;
+    transition: all .2s ease-out;
+}
+.auth-form input:hover {
+    border: 1px solid var(--main-color);
 }
 
 .auth-form input:focus {
@@ -121,13 +166,14 @@ nav a.active {
 
 .auth-submit {
     background: var(--accent);
-    border: 1px solid #c18400;
+    border: 1px solid var(--ink);
     border-radius: 3px;
     color: var(--ink);
     cursor: pointer;
     font: inherit;
     font-weight: 600;
     padding: 0.75rem;
+    transition: .2s;
 }
 
 .auth-submit:hover {
@@ -154,8 +200,9 @@ nav a.active {
 
 .auth-switch {
     font-size: 0.9rem;
-    margin: 1.25rem 0 0;
+    margin: .5rem 0 0;
     text-align: center;
+    padding-top: 1.5rem;
 }
 
 .auth-switch a {
@@ -165,12 +212,13 @@ nav a.active {
 
 @media (max-width: 700px) {
     .site-header {
-        height: 80px;
-        padding: 0 1.25rem;
+        align-items: flex-start;
+        height: auto;
+        padding: 1.25rem clamp(1.25rem, 7vw, 2rem);
     }
 
     .brand {
-        font-size: 2rem;
+        font-size: 2.25rem;
     }
 
     nav .desktop-nav {
@@ -178,21 +226,43 @@ nav a.active {
     }
 
     .menu-toggle {
+        align-items: center;
         background: transparent;
         border: 0;
-        color: #fff;
-        display: block;
-        font-size: 1.4rem;
+        color: var(--text-color);
+        cursor: pointer;
+        display: flex;
+        font-size: 1.75rem;
+        justify-content: center;
+        padding: 0.5rem;
+        position: relative;
+        z-index: 2;
     }
 
-    .sidebar.is-open {
-        background: rgba(43, 43, 43, 0.97);
-        display: grid;
-        gap: 1rem;
-        padding: 1.25rem;
-        position: absolute;
-        right: 1rem;
-        top: 4.5rem;
+    nav .sidebar {
+        background: rgba(20, 20, 20, 0.97);
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        height: 100vh;
+        justify-content: flex-start;
+        padding: 7rem 2rem 2rem;
+        position: fixed;
+        right: 0;
+        top: 0;
+        transform: translateX(100%);
+        transition: transform 0.25s ease;
+        width: min(18rem, 80vw);
+        z-index: 99;
+    }
+
+    nav .sidebar.is-open {
+        transform: translateX(0);
+    }
+
+    nav a {
+        font-size: 1.25rem;
+        text-align: center;
     }
 
     .auth-main {

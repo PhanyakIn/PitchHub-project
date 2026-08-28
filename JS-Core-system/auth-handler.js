@@ -58,7 +58,7 @@ if (!authConfig?.url || !authConfig?.key) {
             showAuthMessage('สมัครสำเร็จ กรุณาตรวจสอบอีเมลเพื่อยืนยันบัญชีก่อนเข้าสู่ระบบ');
             authForm.reset();
         } else {
-            window.location.href = 'booking.html';
+            window.location.href = 'account.html';
         }
 
         authSubmit.disabled = false;
