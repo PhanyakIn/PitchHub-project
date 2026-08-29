@@ -244,8 +244,8 @@ main {
 
 .stat-card {
     background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
+    border: 2px solid var(--border);
+    border-radius: 5px;
     padding: 1.25rem 1.5rem;
     display: flex;
     align-items: center;
@@ -254,36 +254,31 @@ main {
 }
 
 .stat-card:hover {
-    border-color: #444;
+    border-color: var(--main-color);
 }
 
 .stat-icon {
-    width: 2.75rem;
-    height: 2.75rem;
-    border-radius: 10px;
-    background: rgba(252, 164, 0, 0.12);
+    width: 3rem;
+    height: 3rem;
     color: var(--main-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 2rem;
     flex-shrink: 0;
 }
 
-.stat-icon.active {
-    background: rgba(142, 176, 121, 0.15);
+/* .stat-icon.active {
     color: var(--available);
 }
 
 .stat-icon.cancelled {
-    background: rgba(203, 68, 68, 0.15);
     color: var(--booked);
 }
 
 .stat-icon.users {
-    background: rgba(255, 255, 255, 0.08);
     color: var(--text-muted);
-}
+} */
 
 .stat-info {
     display: flex;
@@ -307,7 +302,7 @@ main {
 .calendar-panel {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 5px;
     padding: 1.5rem;
     margin-bottom: 2rem;
 }
@@ -407,7 +402,7 @@ main {
 .table-container {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 5px;
     overflow: hidden;
 }
 
@@ -494,8 +489,8 @@ main {
 
 .pagination-btn:hover:not(:disabled) {
     border-color: var(--main-color);
-    color: var(--main-color);
-    background: rgba(252, 164, 0, 0.08);
+    color: var(--text-color);
+    background: var(--main-color);
 }
 
 .pagination-btn:disabled {
@@ -575,7 +570,7 @@ main {
 .employee-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 5px;
     padding: 1.5rem;
     display: flex;
     align-items: center;
