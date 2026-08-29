@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | PitchHub</title>
+
+    <link rel="stylesheet" href="CSS-Admin/admin-page-style.css">
+    <link rel="stylesheet" href="CSS-Admin/pages-transition.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Noto+Sans+Thai:wght@100..900&family=Prompt:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+<body>
+    <div id="site-nav"></div>
+    <main>
+        <aside class="sidebar-nav">
+            <button class="nav-btn active" data-section="dashboard">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Dashboard</span>
+            </button>
+            <button class="nav-btn" data-section="users">
+                <i class="fa-solid fa-users"></i>
+                <span>Users</span>
+            </button>
+            <button class="nav-btn" data-section="employees">
+                <i class="fa-solid fa-user-tie"></i>
+                <span>Employee</span>
+            </button>
+        </aside>
+
+        <section class="content-area">
+            <!-- Dashboard -->
+            <div class="section-panel active" id="dashboard">
+                <div class="section-header">
+                    <h1>Dashboard</h1>
+                    <p class="subtitle">ภาพรวมการจองในเดือนนี้</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="stat-total-bookings">0</span>
+                            <span class="stat-label">การจองทั้งหมด</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon active"><i class="fa-solid fa-circle-check"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="stat-active">0</span>
+                            <span class="stat-label">Active</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon cancelled"><i class="fa-solid fa-circle-xmark"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="stat-cancelled">0</span>
+                            <span class="stat-label">Cancelled</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon users"><i class="fa-solid fa-users"></i></div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="stat-users">0</span>
+                            <span class="stat-label">Users</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calendar-panel">
+                    <div class="calendar-header">
+                        <div>
+                            <h2>Booking Calendar</h2>
+                            <p>รายงานการจองภายใน 30 วันล่าสุด</p>
+                        </div>
+                        <div class="calendar-legend">
+                            <span><i class="calendar-dot active"></i>Booked</span>
+                            <span><i class="calendar-dot cancelled"></i>Cancelled</span>
+                        </div>
+                    </div>
+                    <div class="calendar-grid" id="booking-calendar"></div>
+                </div>
+
+                <div class="table-container">
+                    <div class="table-header">
+                        <h2>ประวัติการจอง</h2>
+                        <span class="table-badge" id="month-label"></span>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Date</th>
+                                <th>Pitch</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="booking-table-body">
+                            <tr class="empty-row">
+                                <td colspan="5">ไม่มีข้อมูลการจอง</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="table-pagination" id="booking-pagination">
+                        <button class="pagination-btn" id="booking-prev" type="button" aria-label="Previous page">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <span class="pagination-info" id="booking-page-info">หน้า 1</span>
+                        <button class="pagination-btn" id="booking-next" type="button" aria-label="Next page">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users -->
+            <div class="section-panel" id="users">
+                <div class="section-header">
+                    <h1>Users</h1>
+                    <p class="subtitle">รายชื่อผู้ใช้ทั้งหมด</p>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-table-body">
+                            <tr class="empty-row">
+                                <td colspan="3">ไม่มีข้อมูลผู้ใช้</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Employees -->
+            <div class="section-panel" id="employees">
+                <div class="section-header">
+                    <h1>Employee</h1>
+                    <p class="subtitle">ข้อมูลพนักงานในบริษัท</p>
+                </div>
+
+                <div class="employee-grid" id="employee-grid">
+                    <div class="empty-state">
+                        <i class="fa-solid fa-user-tie"></i>
+                        <p>ไม่มีข้อมูลพนักงาน</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="JS-Core-system/supabase-config.js"></script>
+    <script src="CSS-Admin/JS-Admin-system/display-info-handler.js"></script>
+    <script src="JS-Core-system/pages-handler.js"></script>
+    <script src="JS-Core-system/auth-nav-handler.js"></script>
+</body>
+</html>

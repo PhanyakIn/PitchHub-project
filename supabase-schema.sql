@@ -5,6 +5,46 @@ create table if not exists public.users (
   role text not null default 'user' check (role in ('user', 'admin'))
 );
 
+create or replace function public.sync_user_id_from_auth()
+returns trigger
+language plpgsql
+security definer
+set search_path = public, auth
+as $$
+begin
+  if new.id is null then
+    new.id := auth.uid();
+  end if;
+
+  if new.id is not null and new.id <> auth.uid() then
+    new.id := auth.uid();
+  end if;
+
+  return new;
+end;
+$$;
+
+do $$
+begin
+  if not exists (
+    select 1
+    from pg_trigger
+    where tgname = 'users_sync_id_from_auth'
+  ) then
+    create trigger users_sync_id_from_auth
+    before insert or update on public.users
+    for each row
+    execute function public.sync_user_id_from_auth();
+  end if;
+end $$;
+
+-- Backfill existing data: match public.users rows to auth.users by email so bookings.user_id can resolve correctly.
+update public.users u
+set id = a.id
+from auth.users a
+where a.email = u.email
+  and u.id is distinct from a.id;
+
 alter table public.users enable row level security;
 
 drop policy if exists "Anyone can view users" on public.users;

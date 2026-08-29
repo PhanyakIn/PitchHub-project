@@ -56,7 +56,14 @@ if (!authConfig?.url || !authConfig?.key) {
 
         if (isRegisterPage) {
             const fullName = `${formData.get('first_name').trim()} ${formData.get('last_name').trim()}`;
-            await supabase.from('users').insert({ fullname: fullName, email, role: 'user' });
+            const userId = result.data?.user?.id;
+
+            if (userId) {
+                await supabase.from('users').upsert(
+                    { id: userId, fullname: fullName, email, role: 'user' },
+                    { onConflict: 'id' }
+                );
+            }
         }
 
         if (isRegisterPage && !result.data.session) {
