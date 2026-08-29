@@ -21,11 +21,35 @@ if (authNavConfig?.url && authNavConfig?.key && window.supabase) {
 		});
 	};
 
+	const updateAdminLink = async (user) => {
+		document.querySelectorAll('.admin-only').forEach(el => {
+			el.style.display = 'none';
+		});
+
+		if (user) {
+			const { data } = await authNavSupabase
+				.from('users')
+				.select('role')
+				.eq('email', user.email)
+				.maybeSingle();
+
+			if (data?.role === 'admin') {
+				document.querySelectorAll('.admin-only').forEach(el => {
+					el.style.display = '';
+				});
+			}
+		}
+	};
+
 	const updateAuthLinks = async () => {
 		const { data: { user } } = await authNavSupabase.auth.getUser();
 		renderNavAccount(user);
+		updateAdminLink(user);
 	};
 
 	updateAuthLinks();
-	authNavSupabase.auth.onAuthStateChange((_, session) => renderNavAccount(session?.user));
+	authNavSupabase.auth.onAuthStateChange((_, session) => {
+		renderNavAccount(session?.user);
+		updateAdminLink(session?.user);
+	});
 }

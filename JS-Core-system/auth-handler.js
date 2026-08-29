@@ -54,6 +54,11 @@ if (!authConfig?.url || !authConfig?.key) {
             return;
         }
 
+        if (isRegisterPage) {
+            const fullName = `${formData.get('first_name').trim()} ${formData.get('last_name').trim()}`;
+            await supabase.from('users').insert({ fullname: fullName, email, role: 'user' });
+        }
+
         if (isRegisterPage && !result.data.session) {
             showAuthMessage('สมัครสำเร็จ กรุณาตรวจสอบอีเมลเพื่อยืนยันบัญชีก่อนเข้าสู่ระบบ');
             authForm.reset();

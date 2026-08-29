@@ -7,18 +7,18 @@ document.querySelector('#site-nav').innerHTML = `
 			<button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-sidebar" aria-expanded="false">
 				<i class="fa-solid fa-bars" aria-hidden="true"></i>
 			</button>
-			<ul class="sidebar" id="mobile-sidebar">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="booking.html">Booking</a></li>
-				<li><a href="match.html">Match</a></li>
-				<li><a href="login.html">Login</a></li>
-			</ul>
-			<ul class="desktop-nav">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="booking.html">Booking</a></li>
-				<li><a href="match.html">Match</a></li>
-				<li><a href="login.html"><i class="fa-regular fa-circle-user" style="font-size: 2.5rem;"></i></a></li>
-			</ul>
+		<ul class="sidebar" id="mobile-sidebar">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="booking.html">Booking</a></li>
+			<li><a href="admin.html" class="admin-only" style="display:none">Admin</a></li>
+			<li><a href="login.html">Login</a></li>
+		</ul>
+		<ul class="desktop-nav">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="booking.html">Booking</a></li>
+			<li><a href="admin.html" class="admin-only" style="display:none">Admin</a></li>
+			<li><a href="login.html"><i class="fa-regular fa-circle-user" style="font-size: 2.5rem;"></i></a></li>
+		</ul>
 		</nav>
 	</header>
 `;

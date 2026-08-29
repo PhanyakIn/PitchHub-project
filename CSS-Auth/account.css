@@ -115,7 +115,9 @@ nav a.active .nav-account-avatar {
 
 .account-heading,
 .account-profile,
-.booking-history-item > div {
+.booking-history-item > div,
+.booking-time-row,
+.booking-total-row {
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -211,8 +213,38 @@ nav a.active .nav-account-avatar {
     padding: 1rem;
 }
 
-.booking-history-item > div + div {
-    margin-top: 0.4rem;
+.booking-date-header {
+    font-size: 1.05rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0.3rem;
+}
+
+.booking-pitch-label {
+    color: var(--account-ink);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0.6rem 0 0.2rem;
+}
+
+.booking-pitch-sublabel {
+    color: var(--account-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0.5rem 0 0.15rem;
+}
+
+.booking-time-row {
+    padding: 0.15rem 0;
+}
+
+.booking-cancelled-label + .cancel-booking-btn,
+.cancel-booking-btn + .cancel-booking-btn,
+.cancel-booking-btn + .booking-pitch-label,
+.cancel-booking-btn + .booking-time-row,
+.booking-cancelled-label + .booking-pitch-label,
+.booking-cancelled-label + .booking-time-row {
+    margin-top: 0.2rem;
 }
 
 .booking-history-item span {
