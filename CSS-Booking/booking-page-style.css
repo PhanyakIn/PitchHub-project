@@ -19,6 +19,7 @@ body {
     --main-color: #fca400;
     --booked: #cb4444;
     --available: #8eb079;
+    --past: #889682;
     --dark: #2b2b2b;
     --selecting: #fca400;
     --selected: #b78b43;
@@ -180,6 +181,18 @@ nav a.active .nav-account-avatar {
 
 .status-pitch.is-booked,
 .status-pitch.is-booked:hover {
+    background-color: var(--booked);
+    cursor: not-allowed;
+}
+
+.status-pitch.is-past,
+.status-pitch.is-past:hover {
+    background-color: var(--past);
+    cursor: not-allowed;
+}
+
+.status-pitch.is-booked.is-past,
+.status-pitch.is-booked.is-past:hover {
     background-color: var(--booked);
     cursor: not-allowed;
 }
@@ -454,6 +467,12 @@ nav a.active .nav-account-avatar {
     flex: 1;
     padding: 10px;
     background-color: var(--booked);
+    border: 1px solid black;
+}
+.color-ispast {
+    flex: 1;
+    padding: 10px;
+    background-color: var(--past);
     border: 1px solid black;
 }
 

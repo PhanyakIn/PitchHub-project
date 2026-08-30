@@ -49,7 +49,7 @@ if (!supabaseConfig?.url || !supabaseConfig?.key) {
 			.eq('status', 'booked');
 
 		getBookingCells().forEach((cell) => {
-			cell.classList.remove('is-booked', 'selecting');
+			cell.classList.remove('is-booked', 'selecting', 'is-past');
 			cell.disabled = false;
 		});
 		window.PitchHubBookingTime?.updateTimeAvailability();

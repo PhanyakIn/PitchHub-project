@@ -29,8 +29,8 @@ body {
     position: relative;
     color: var(--text-color);
     overflow-x: hidden;
-    background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, 0.8)),
-        url("https://images.unsplash.com/photo-1632300951015-42d7df909581?q=80&w=3125&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") 
+    background: linear-gradient(rgba(22, 22, 22, .6), rgba(138, 159, 96, 0.5)),
+        url("https://images.unsplash.com/photo-1599207010336-73180970188c?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") 
         center/cover no-repeat fixed;
 }
 
@@ -38,7 +38,6 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(255, 255, 255, 0.2);
     pointer-events: none;
     z-index: 0;
 }
@@ -152,7 +151,7 @@ main {
 }
 
 .sidebar-nav {
-    background: var(--dark);
+    background: var(--card-bg);
     display: flex;
     flex-direction: column;
     width: min(16rem, 80vw);
@@ -189,15 +188,16 @@ main {
 }
 
 .nav-btn:hover {
-    color: var(--text-color);
-    background: rgba(255, 255, 255, 0.04);
+    color: var(--card-bg);
+    background: rgba(255, 255, 255, .8);
     letter-spacing: .2rem;
 }
 
 .nav-btn.active {
-    color: var(--main-color);
-    background: rgba(252, 164, 0, 0.08);
+    color: var(--card-bg);
+    background: rgba(255, 255, 255, 1);
     border-left-color: var(--main-color);
+    border-left-width: 10px;
     font-weight: 400;
 }
 
@@ -224,11 +224,11 @@ main {
 .section-header h1 {
     font-size: 4rem;
     font-weight: 600;
-    color: var(--dark);
+    color: var(--text-color);
 }
 
 .section-header .subtitle {
-    color: var(--dark);
+    color: var(--text-color);
     font-size: 1.3rem;
     font-weight: 300;
     padding-left: .3rem;
@@ -714,6 +714,7 @@ main {
         width: 100%;
         min-height: auto;
         flex-direction: row;
+        justify-content: center;
         overflow-x: auto;
         padding: 0.75rem 1rem;
         gap: 0;
@@ -722,11 +723,13 @@ main {
     }
 
     .nav-btn {
+        justify-content: center;
         padding: 0.6rem 1rem;
         font-size: 0.9rem;
         border-left: none;
-        border-bottom: 2px solid transparent;
+        border-bottom: 5px solid transparent;
         white-space: nowrap;
+        width: 100%;
     }
 
     .nav-btn.active {

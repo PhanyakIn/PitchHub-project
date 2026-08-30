@@ -9,9 +9,16 @@ const isBookingTimeAvailable = (date, time) => {
 
 const updateTimeAvailability = () => {
 	document.querySelectorAll('.status-pitch').forEach((pitch) => {
-		if (!pitch.classList.contains('is-booked')) {
-			pitch.disabled = !isBookingTimeAvailable(bookingDate?.value, pitch.dataset.time);
+		const isBooked = pitch.classList.contains('is-booked');
+		if (isBooked) {
+			pitch.disabled = true;
+			pitch.classList.remove('is-past');
+			return;
 		}
+
+		const available = isBookingTimeAvailable(bookingDate?.value, pitch.dataset.time);
+		pitch.disabled = !available;
+		pitch.classList.toggle('is-past', !available);
 	});
 };
 
