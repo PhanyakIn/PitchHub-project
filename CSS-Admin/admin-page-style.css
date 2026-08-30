@@ -29,7 +29,7 @@ body {
     position: relative;
     color: var(--text-color);
     overflow-x: hidden;
-    background: linear-gradient(rgba(22, 22, 22, .6), rgba(138, 159, 96, 0.5)),
+    background: linear-gradient(rgba(61, 73, 37, 0.5), rgba(138, 159, 96, 0.6)),
         url("https://images.unsplash.com/photo-1599207010336-73180970188c?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") 
         center/cover no-repeat fixed;
 }
@@ -116,7 +116,7 @@ nav a.active {
 }
 
 .desktop-nav .fa-circle-user {
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .nav-account-avatar {
@@ -300,7 +300,7 @@ main {
 
 /*calendar*/
 .calendar-panel {
-    background: var(--card-bg);
+    background: var(--secondary-color);
     border: 1px solid var(--border);
     border-radius: 5px;
     padding: 1.5rem;
@@ -319,6 +319,7 @@ main {
     font-size: 1.1rem;
     font-weight: 500;
     margin-bottom: 0.2rem;
+    color: var(--dark);
 }
 
 .calendar-header p {
@@ -361,8 +362,8 @@ main {
 
 .calendar-day {
     min-height: 5rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--text-muted);
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
@@ -375,13 +376,13 @@ main {
 }
 
 .calendar-day .day-number {
-    font-size: 0.75rem;
+    font-size: 1rem;
     color: var(--text-muted);
 }
 
 .calendar-day.has-bookings {
-    border-color: var(--secondary-color);
-    background: rgba(157, 225, 115, 0.4);
+    border-color: var(--text-muted);
+    background: rgba(117, 163, 89, 0.8);
 }
 .calendar-day.has-bookings .day-number {
     color: var(--text-color);
