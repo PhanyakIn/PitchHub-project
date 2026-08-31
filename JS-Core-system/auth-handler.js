@@ -16,6 +16,21 @@ if (!authConfig?.url || !authConfig?.key) {
     const supabase = window.supabase.createClient(authConfig.url, authConfig.key);
     const isRegisterPage = window.location.pathname.endsWith('register.html');
 
+    if (isRegisterPage) {
+        const passwordInput = document.getElementById('password');
+        const passwordHint = document.getElementById('password-hint');
+
+        const validatePassword = () => {
+            const val = passwordInput.value;
+            if (val.length > 0 && val.length < 8) {
+                passwordHint.classList.add('is-invalid');
+            } else {
+                passwordHint.classList.remove('is-invalid');
+            }
+        };
+        passwordInput.addEventListener('input', validatePassword);
+    }
+
     authForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         authSubmit.disabled = true;
@@ -30,6 +45,13 @@ if (!authConfig?.url || !authConfig?.key) {
             const firstName = formData.get('first_name').trim();
             const lastName = formData.get('last_name').trim();
             const confirmPassword = formData.get('confirm_password');
+
+            if (password.length < 8) {
+                showAuthMessage('รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร', true);
+                authSubmit.disabled = false;
+                authSubmit.textContent = 'สมัครสมาชิก';
+                return;
+            }
 
             if (password !== confirmPassword) {
                 showAuthMessage('รหัสผ่านและยืนยันรหัสผ่านไม่ตรงกัน', true);

@@ -199,6 +199,16 @@ nav a.active {
     color: #a32f2f;
 }
 
+.field-hint {
+    color: #cb4444;
+    font-size: 0.8rem;
+    display: none;
+}
+
+.field-hint.is-invalid {
+    display: block;
+}
+
 .auth-switch {
     font-size: 0.9rem;
     margin: .5rem 0 0;
