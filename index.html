@@ -6,6 +6,7 @@
     <title>PitchHub</title>
     <link rel="stylesheet" href="CSS-Home/home-page-style.css">
     <link rel="stylesheet" href="CSS-Home/pages-transition.css">
+    <link rel="stylesheet" href="CSS-Home/gallery-section.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,18 +17,43 @@
 <body>
     <div id="site-nav"></div>
     <main>
-        <div class="content-text">
-            <h1>สนามหญ้าเทียมใจกลางเมือง</h1>
-            <p>สนามฟุตบอลในร่มหญ้าเทียมคุณภาพสูงในราคาเข้าถึงได้ พร้อมสิ่งอำนวยความสะดวกมากมาย<br>จัดแข่งขันทัวร์นาเมนต์ จัดงานอีเว้นท์ในร่ม หาเพื่อนเตะฟุตบอล ที่นี่จะกลายเป็นชุมชนคนรักกีฬา!</p>
-        </div>
-
-        <div class="content-btn">
-            <a href="booking.html" class="book-link">จองเลย<span> ↗</span></a>
-            <a href="https://www.facebook.com" class="facebook-link" target="_blank"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
-            <a href="https://www.instagram.com" class="instagram-link" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
-        </div>
-
+        <section class="hero-slider">
+            <div class="slider-imgs">
+                <img id="img1" src="https://images.unsplash.com/photo-1621998014874-a6edfb5f9bc7?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                <img id="img2" src="https://images.unsplash.com/photo-1632300951015-42d7df909581?q=80&w=3125&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                <img id="img3" src="https://images.unsplash.com/photo-1660324833532-cbef6ed4eaa3?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                <img id="img4" src="https://images.unsplash.com/photo-1638027611086-3b1b8f63611d?q=80&w=2144&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                <img id="img5" src="https://images.unsplash.com/photo-1731766585055-c957a2b7630a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="slider-imgs-nav">
+                <a href="#img1"></a>
+                <a href="#img2"></a>
+                <a href="#img3"></a>
+                <a href="#img4"></a>
+                <a href="#img5"></a>
+            </div>
+            <div class="hero-content">
+                <div class="content-text">
+                    <h1>สนามหญ้าเทียมใจกลางเมือง</h1>
+                    <p>สนามฟุตบอลในร่มหญ้าเทียมคุณภาพสูงในราคาเข้าถึงได้ พร้อมสิ่งอำนวยความสะดวกมากมาย<br>จัดแข่งขันทัวร์นาเมนต์ จัดงานอีเว้นท์ในร่ม หาเพื่อนเตะฟุตบอล ที่นี่จะกลายเป็นชุมชนคนรักกีฬา!</p>
+                </div>
+                <div class="content-btn">
+                    <a href="booking.html" class="book-link">จองเลย<span> ↗</span></a>
+                    <a href="https://www.facebook.com" class="facebook-link" target="_blank"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+                    <a href="https://www.instagram.com" class="instagram-link" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                </div>
+            </div>
+        </section>
+        <section class="gallery-container">
+            <div class="con-head">
+                <div class="top-backfade">
+                    
+                </div>
+            </div>
+        </section>
     </main>
+    <script src="JS-Home-page/slider-img-handler.js"></script>
     <script src="JS-Core-system/pages-handler.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="JS-Core-system/supabase-config.js"></script>

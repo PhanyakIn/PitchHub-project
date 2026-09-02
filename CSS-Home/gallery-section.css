@@ -1,0 +1,11 @@
+:root {
+    --text-color: #fff;
+    --secondary-color: #fff;
+    --main-color: #fca400;
+    --dark: #2b2b2b;
+}
+
+.con-head {
+    height: 2000px;
+    background-color: var(--main-color);
+}
