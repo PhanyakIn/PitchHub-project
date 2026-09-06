@@ -15,19 +15,24 @@
 }
 
 
-html, body {
+html {
     margin: 0;
     min-height: 100%;
 }
 
 body {
-    background: var(--secondary-color);
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--dark);
     color: var(--text-color);
     overflow-x: hidden;
 }
 
 main {
     width: 100%;
+    flex: 1;
 }
 
 /*navigation bar*/
@@ -40,6 +45,11 @@ main {
     position: fixed;
     width: 100%;
     z-index: 5;
+    transition: transform 0.4s ease-in-out;
+}
+
+.site-header.nav-hidden {
+    transform: translateY(-100%);
 }
 .site-header::before {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent);
@@ -254,6 +264,7 @@ nav a.active .nav-account-avatar {
     color: var(--secondary-color);
     transition: all 0.3s ease-in-out;
 }
+
 
 @media (max-width: 700px) {
     .site-header {

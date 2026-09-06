@@ -31,3 +31,57 @@
         animation-duration: 1ms;
     }
 }
+
+/* scroll animation */
+.content-text h1 { animation: text-slide .6s ease-in-out; }
+.content-text p { animation: text-slide .7s ease-in-out; }
+.book-link { animation: text-showup .7s ease-in-out; }
+.facebook-link { animation: text-showup .75s ease-in-out; }
+.instagram-link { animation: text-showup .8s ease-in-out; }
+
+.con-head h1, .con-head p{
+    animation: text-showup both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 200%;
+}
+@keyframes text-slide {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes text-showup {
+    from {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*location section*/
+@keyframes color-change {
+    from {
+        opacity: 0.3;
+    }
+    to {
+        opacity: 1;
+        color: var(--main-color);
+    }
+}
+
+.location-section .head-text h1 {
+    animation: color-change both ,text-slide ease;
+    animation-timeline: view();
+}
+
+.location-section .head-text p {
+    animation: text-slide ease;
+    animation-timeline: view();
+}

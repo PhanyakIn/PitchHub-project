@@ -6,8 +6,9 @@
     <title>PitchHub</title>
     <link rel="stylesheet" href="CSS-Home/home-page-style.css">
     <link rel="stylesheet" href="CSS-Home/pages-transition.css">
-    <link rel="stylesheet" href="CSS-Home/gallery-section.css">
-
+    <link rel="stylesheet" href="CSS-Home/aboutus-section.css">
+    <link rel="stylesheet" href="CSS-Home/location-section.css">
+    <link rel="stylesheet" href="CSS-Home/footer-style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Noto+Sans+Thai:wght@100..900&family=Prompt:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -45,18 +46,55 @@
                 </div>
             </div>
         </section>
-        <section class="gallery-container">
+        <section class="aboutus-section">
             <div class="con-head">
-                <div class="top-backfade">
-                    
-                </div>
+                <h1>Pitch<span>Hub</span> is <span2>community</span2></h1>
+                <p>ที่นี่ไม่ใช่แค่สนามฟุตบอล แต่คือจุดนัดพบของคนรักกีฬา เราสร้างพื้นที่ให้ทุกคนได้มาเตะบอล แข่งขันทัวร์นาเมนต์ และสร้างมิตรภาพใหม่ๆ บนสนามหญ้าเทียมคุณภาพระดับมาตรฐาน พร้อมระบบจองที่ง่ายและรวดเร็ว ไม่ว่าจะจัดทีมมาเตะหรืออยากลองเล่นคนเดียว ที่ PitchHub เราพร้อมต้อนรับทุกคนเสมอ</p>
+            </div>
+        </section>
+        <section class="location-section">
+            <div class="head-text">
+                <h1>Thailand,<br>Bangkok</h1>
+                <p>ถนนพญาไท แขวงวังใหม่ เขตปทุมวัน กรุงเทพมหานคร 10330</p>
+            </div>
+            <div class="main-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.6862835511497!2d100.52120987246694!3d13.737433588277721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2992a4ea9f0f1%3A0xafc4f8f918f0f01b!2z4Liq4LiZ4Liy4Lih4LiB4Li14Lis4Liy4LiI4Li44Lis4Liy4Lil4LiH4LiB4Lij4LiT4LmM4Lih4Lir4Liy4Lin4Li04LiX4Lii4Liy4Lil4Lix4Lii!5e0!3m2!1sth!2sth!4v1788711952232!5m2!1sth!2sth" width="1000" height="700" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
         </section>
     </main>
-    <script src="JS-Home-page/slider-img-handler.js"></script>
-    <script src="JS-Core-system/pages-handler.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="JS-Core-system/supabase-config.js"></script>
-    <script src="JS-Core-system/auth-nav-handler.js"></script>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="brand">Pitch<span>Hub</span></a>
+                <p>สนามฟุตบอลหญ้าเทียมคุณภาพใจกลางกรุงเทพ</p>
+            </div>
+            <div class="footer-links">
+                <h3>วาร์ป</h3>
+                <ul>
+                    <li><a href="index.html">หน้าแรก</a></li>
+                    <li><a href="booking.html">จองสนาม</a></li>
+                    <li><a href="login.html">เข้าสู่ระบบ</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>ติดตามเรา</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>2026 PitchHub. All rights reserved. Developed by Phanyakorn Inthasombat</p>
+        </div>
+    </footer>
+    <javascript-section>
+        <script src="JS-Home-page/slider-img-handler.js"></script>
+        <script src="JS-Core-system/pages-handler.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="JS-Core-system/supabase-config.js"></script>
+        <script src="JS-Core-system/auth-nav-handler.js"></script>
+        <script src="JS-Home-page/navbar-scroll-handler.js"></script>
+    </javascript-section>
 </body>
 </html>
