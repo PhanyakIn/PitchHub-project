@@ -36,7 +36,7 @@
 span2 {
     font-size: 5rem;
     font-weight: 800;
-    color: antiquewhite;
+    color: var(--main-color);
 }
 .con-head h1 {
     font-size: 5rem;
@@ -47,4 +47,56 @@ span2 {
     font-size: 2rem;
     padding-left: 100px;
     padding-right: 100px;
+}
+
+@media (max-width: 1024px) {
+    .aboutus-section {
+        min-height: 100vh;
+    }
+
+    .con-head span,
+    span2,
+    .con-head h1 {
+        font-size: 3.5rem;
+    }
+
+    .con-head p {
+        font-size: 1.5rem;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+}
+
+@media (max-width: 700px) {
+    .aboutus-section {
+        min-height: 100vh;
+        padding: 4rem 0;
+    }
+
+    .con-head {
+        padding: 0 6vw;
+    }
+
+    .con-head span,
+    span2,
+    .con-head h1 {
+        font-size: 2.25rem;
+    }
+
+    .con-head p {
+        font-size: 1rem;
+        padding-left: 0;
+        padding-right: 0;
+        line-height: 1.8;
+    }
+}
+
+@media (max-width: 480px) {
+    .aboutus-section {
+        padding: 3rem 0;
+    }
+
+    .con-head {
+        padding: 0 5vw;
+    }
 }

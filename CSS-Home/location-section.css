@@ -35,3 +35,62 @@
     height: 100%;
     border: 0;
 }
+
+@media (max-width: 1024px) {
+    .location-section {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .head-text h1 {
+        font-size: 6rem;
+        padding: 30px 50px 10px;
+    }
+
+    .head-text p {
+        padding: 10px 50px 30px;
+    }
+
+    .main-map {
+        height: 500px;
+    }
+}
+
+@media (max-width: 700px) {
+    .location-section {
+        height: auto;
+        min-height: auto;
+    }
+
+    .head-text {
+        text-align: center;
+    }
+
+    .head-text h1 {
+        font-size: 3rem;
+        padding: 30px 6vw 10px;
+    }
+
+    .head-text p {
+        font-size: 1rem;
+        padding: 10px 6vw 30px;
+    }
+
+    .main-map {
+        height: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .head-text h1 {
+        padding: 24px 5vw 8px;
+    }
+
+    .head-text p {
+        padding: 8px 5vw 24px;
+    }
+
+    .main-map {
+        height: 460px;
+    }
+}

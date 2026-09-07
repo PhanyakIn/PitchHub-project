@@ -155,9 +155,9 @@ nav a.active .nav-account-avatar {
 }
 .hero-content {
     position: absolute;
-    bottom: 13rem;
+    bottom: 10rem;
     left: 50%;
-    transform: translateX(-60%);
+    transform: translateX(calc(-50% - 4vw));
 
     width: min(1200px, 100%);
     padding: 0 5vw;
@@ -266,10 +266,22 @@ nav a.active .nav-account-avatar {
 }
 
 
-@media (max-width: 700px) {
+@media (max-width: 1300px) {
+    .hero-content {
+        bottom: 8rem;
+        /* จอเริ่มแคบ: เลิกเยื้องซ้าย กลับมากลางเพื่อกัน text ชิดขอบ */
+        transform: translateX(-50%);
+    }
+
+    .content-text p {
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 770px) {
     .site-header {
         height: auto;
-        padding: 1.25rem clamp(1.25rem, 7vw, 2rem);
+        padding: 1.25rem 5vw;
         align-items: flex-start;
         gap: 1rem;
     }
@@ -317,6 +329,31 @@ nav a.active .nav-account-avatar {
         transform: translateX(0);
     }
 
+    /* hero: center both axes on narrow screens */
+    .hero-slider {
+        height: 100svh;
+        min-height: 620px;
+    }
+
+    .hero-content {
+        top: 50%;
+        bottom: auto;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: 640px;
+        padding: 0 6vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .content-text h1 {
+        font-size: clamp(1.75rem, 8vw, 2.5rem);
+        margin-bottom: 12px;
+    }
+
     nav a,
     .book-link,
     .facebook-link,
@@ -326,10 +363,74 @@ nav a.active .nav-account-avatar {
     }
 
     .content-text p {
+        padding: 0;
+        font-size: 1rem;
         line-height: 1.8;
     }
 
+    .content-text p br {
+        display: none;
+    }
+
     .content-btn {
+        justify-content: center;
+        align-items: stretch;
         gap: 12px;
+        margin-top: 1.5rem;
+        padding: 0;
+        width: 100%;
+    }
+
+    .content-btn a {
+        flex: 1 1 auto;
+        white-space: nowrap;
+    }
+
+    .slider-imgs-nav {
+        bottom: 1.5rem;
+    }
+
+    .head-text {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-header {
+        padding: 1rem 5vw;
+    }
+
+    .brand {
+        font-size: 1.75rem;
+    }
+
+    .hero-slider {
+        min-height: 560px;
+    }
+
+    .hero-content {
+        padding: 0 5vw;
+        max-width: 100%;
+    }
+
+    .content-text h1 {
+        font-size: clamp(1.5rem, 7.5vw, 2rem);
+    }
+
+    .content-text p {
+        font-size: 0.95rem;
+    }
+
+    .content-btn {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .content-btn a {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+        padding: 10px 16px;
     }
 }

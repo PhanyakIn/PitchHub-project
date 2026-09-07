@@ -85,3 +85,31 @@
     animation: text-slide ease;
     animation-timeline: view();
 }
+
+@media (max-width: 770px) {
+    .location-section .head-text h1 {
+        animation: color-change both, text-showup ease;
+        animation-timeline: view();
+        animation-range: entry 0% entry 300%;
+    }
+
+    .location-section .head-text p {
+        animation: text-showup ease;
+        animation-timeline: view();
+        animation-range: entry 0% entry 300%;
+    }
+}
+
+@media (max-width: 700px) {
+    .location-section .head-text h1 {
+        animation: color-change both, text-showup ease;
+        animation-timeline: view();
+        animation-range: entry 0% entry 300%;
+    }
+
+    .location-section .head-text p {
+        animation: text-showup ease;
+        animation-timeline: view();
+        animation-range: entry 0% entry 300%;
+    }
+}
