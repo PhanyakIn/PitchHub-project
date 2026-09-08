@@ -8,5 +8,5 @@
 //   };
 window.PITCHHUB_SUPABASE_CONFIG = window.PITCHHUB_SUPABASE_CONFIG || {
 	url: '',
-	key: '',
+	key: 'sb_publishable_...',
 };
