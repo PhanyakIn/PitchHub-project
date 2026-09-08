@@ -29,6 +29,11 @@ if (paymentButton && paymentBookingDate && paymentBookingTable) {
 	const closeButton = modal.querySelector('.payment-close');
 	const submitButton = modal.querySelector('.payment-submit');
 
+	// Escape user-controlled strings before injecting into innerHTML (stored-XSS hardening).
+	const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (ch) => ({
+		'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+	}[ch]));
+
 	const getSelectedBookings = () => Array.from(paymentBookingTable.querySelectorAll('.status-pitch.selecting'))
 		.map((cell) => ({
 			pitch: cell.dataset.pitch,
@@ -103,7 +108,7 @@ if (paymentButton && paymentBookingDate && paymentBookingTable) {
 		const amount = selected.reduce((sum, booking) => sum + getPrice(booking.time, paymentBookingDate.value), 0);
 
 		details.innerHTML = `
-			<div><span>ผู้จอง</span><strong>${fullName}</strong></div>
+			<div><span>ผู้จอง</span><strong>${escapeHtml(fullName)}</strong></div>
 			<div><span>วันที่</span><strong>${formatDate(paymentBookingDate.value)}</strong></div>
 			<div class="payment-slots"><span>สนามและเวลา</span><ul>${selected.map((booking) => `<li>สนาม ${booking.pitch} เวลา ${booking.time} น.</li>`).join('')}</ul></div>
 		`;

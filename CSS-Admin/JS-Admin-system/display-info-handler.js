@@ -4,6 +4,12 @@
 
 	const db = window.supabase.createClient(config.url, config.key);
 
+	// Escape user-controlled strings before injecting into innerHTML (stored-XSS hardening).
+	const escapeHtml = (value) => String(value ?? '').replace(/[&<>"']/g, (ch) => ({
+		'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+	}[ch]));
+	const safeRole = (role) => (role === 'admin' ? 'admin' : 'user');
+
 	const navBtns = document.querySelectorAll('.nav-btn');
 	const panels = document.querySelectorAll('.section-panel');
 
@@ -119,7 +125,7 @@
 
 		tbody.innerHTML = currentPageRows.map((b) => `
 			<tr>
-				<td>${b.userName || 'Unknown'}</td>
+				<td>${escapeHtml(b.userName || 'Unknown')}</td>
 				<td>${formatThaiDate(b.booking_date)}</td>
 				<td>${pitchLabels[b.pitch] || `Pitch ${b.pitch}`}</td>
 				<td>${formatTime(b.start_time)}</td>
@@ -195,9 +201,9 @@
 
 		tbody.innerHTML = users.map((u) => `
 			<tr>
-				<td>${u.fullname}</td>
-				<td>${u.email}</td>
-				<td><span class="role-badge ${u.role}">${u.role}</span></td>
+				<td>${escapeHtml(u.fullname)}</td>
+				<td>${escapeHtml(u.email)}</td>
+				<td><span class="role-badge ${safeRole(u.role)}">${escapeHtml(u.role)}</span></td>
 			</tr>
 		`).join('');
 	};
@@ -223,13 +229,13 @@
 		}
 
 		grid.innerHTML = employees.map((e) => {
-			const initials = (e.fullname || '?').split(' ').map((w) => w[0]).join('').slice(0, 2);
+			const initials = escapeHtml((e.fullname || '?').split(' ').map((w) => w[0]).join('').slice(0, 2));
 			return `
 				<div class="employee-card">
 					<div class="employee-avatar">${initials}</div>
 					<div class="employee-info">
-						<span class="employee-name">${e.fullname}</span>
-						<span class="employee-email">${e.email}</span>
+						<span class="employee-name">${escapeHtml(e.fullname)}</span>
+						<span class="employee-email">${escapeHtml(e.email)}</span>
 						<span class="employee-role">Admin</span>
 					</div>
 				</div>
